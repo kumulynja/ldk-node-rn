@@ -121,8 +121,8 @@ export class Builder extends NativeLoader {
     );
   }
 
-  async setLiquiditySourceLsps2(address: string, publicKey:string, token:String): Promise<boolean> {
-    return await this._ldk.setLiquiditySourceLsps2(address, publicKey, token, this.id);
+  async setLiquiditySourceLsps2(address: string, publicKey:string, token:string): Promise<boolean> {
+    return await this._ldk.setLiquiditySourceLsps2(this.id, address, publicKey, token);
   }
 
 //   async createMutinynetBuilder(config?: Config): Promise<Builder> {
