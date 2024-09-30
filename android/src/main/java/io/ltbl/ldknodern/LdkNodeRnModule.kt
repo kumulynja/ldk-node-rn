@@ -140,6 +140,16 @@ class LdkNodeRnModule(reactContext: ReactApplicationContext) :
     }
 
     @ReactMethod
+    fun setLiquiditySourceLsps2(builderId: String, address: String, publicKey: String, token:String, result: Promise) {
+        Thread {
+            _builders[builderId]!!.setLiquiditySourceLsps2(address, publicKey, token)
+            runOnUiThread {
+                result.resolve(true)
+            }
+        }.start()
+    }
+
+    @ReactMethod
     fun setStorageDirPath(builderId: String, storageDirPath: String, result: Promise) {
         Thread {
             _builders[builderId]!!.setStorageDirPath(storageDirPath)
